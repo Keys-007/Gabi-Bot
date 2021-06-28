@@ -6,7 +6,7 @@ import bs4
 import jikanpy
 import requests
 from telegram.utils.helpers import mention_html
-from GabiBraunRobot import OWNER_ID, DRAGONS, REDIS, dispatcher
+from GabiBraunRobot import OWNER_ID, DRAGONS, dispatcher
 from GabiBraunRobot.modules.disable import DisableAbleCommandHandler
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)

@@ -1,8 +1,8 @@
 from GabiBraunRobot import pbot as app
-from GabiBraunRobot.utils.errors import capture_err
-from GabiBraunRobot.utils.dbfunc import (update_karma, get_karma, get_karmas,
+from GabiBraunRobot.utils.function.errors import capture_err
+from GabiBraunRobot.utils.function.dbfunc import (update_karma, get_karma, get_karmas,
                                    int_to_alpha, alpha_to_int)
-from GabiBraunRobot.utils.filter_groups import karma_positive_group, karma_negative_group
+from GabiBraunRobot.utils.function.filter_groups import karma_positive_group, karma_negative_group
 from pyrogram import filters
 
 

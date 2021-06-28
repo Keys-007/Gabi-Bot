@@ -45,7 +45,7 @@ tgcrypto
 hachoir
 configparser
 cloudscraper
-
+envparse
 pynewtonmath
 aiofiles
 spongemock

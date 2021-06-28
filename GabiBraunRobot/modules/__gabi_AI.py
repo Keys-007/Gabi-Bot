@@ -55,7 +55,7 @@ async def fetch(url):
         return
 
 
-asuna_chats = []
+gabi_chats = []
 en_chats = []
 
 @gabi.on_message(

@@ -212,7 +212,7 @@ async def hmm(client, message):
             except:
                 return
         try:
-            await asuna.send_chat_action(message.chat.id, "typing")
+            await gabi.send_chat_action(message.chat.id, "typing")
             await message.reply_text(pro)
         except CFError:
             return

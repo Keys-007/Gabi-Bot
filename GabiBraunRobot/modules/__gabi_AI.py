@@ -63,7 +63,7 @@ en_chats = []
 )
 @admins_only
 async def hmm(_, message):
-    global asuna_chats
+    global gabi_chats
     if len(message.command) != 2:
         await message.reply_text(
             "I only recognize `/chatbot on` and /chatbot `off only`"
@@ -75,7 +75,7 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("asuna AI Already Activated In This Chat")
+            await lel.edit("gabi AI Already Activated In This Chat")
             return
         await lel.edit(
             f"gabi AI Successfully Added For Users In The Chat {message.chat.id}"
@@ -85,10 +85,10 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("asuna AI Was Not Activated In This Chat")
+            await lel.edit("gabi AI Was Not Activated In This Chat")
             return
         await lel.edit(
-            f"asuna AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"gabi AI Successfully Deactivated For Users In The Chat {message.chat.id}"
         )
 
     elif status == "EN" or status == "en" or status == "english":

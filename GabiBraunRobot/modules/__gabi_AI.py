@@ -192,10 +192,10 @@ async def hmm(client, message):
                 return
         # test = emoji.demojize(test.strip())
 
-        # Kang with the credits bitches @InukaASiTHAsunaRobot
+        # Kang with the credits bitches @InukaASiTH
         test = test.replace("gabi", "Aco")
         test = test.replace("gabi", "Aco")
-        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
+        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@GabiBraun&ownername=@The_Ghost_Hunter"
         try:
             r = requests.request("GET", url=URL)
         except:
@@ -269,7 +269,7 @@ async def inuka(client, message):
     # Kang with the credits bitches @InukaASiTH
     test = test.replace("gabi", "Aco")
     test = test.replace("gabi", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@GabiBraun&ownername=@The_Ghost_Hunter"
     try:
         r = requests.request("GET", url=URL)
     except:

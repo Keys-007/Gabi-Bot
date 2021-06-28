@@ -24,7 +24,6 @@ coffeehouse
 cachetools
 google_trans_new
 regex
-redis
 bleach
 git+https://github.com/starry69/python-markdown2.git
 wikipedia
@@ -46,3 +45,13 @@ tgcrypto
 hachoir
 configparser
 cloudscraper
+
+pynewtonmath
+aiofiles
+spongemock
+zalgo-text
+geopy
+python-arq
+asyncio
+dateparser==1.0.0
+pymongo==3.11.0

@@ -1,4 +1,4 @@
-from GabiBraunRobot import pbot as app
+from GabiBraunRobot import pgram as app
 from GabiBraunRobot.utils.function.errors import capture_err
 from GabiBraunRobot.utils.function.dbfunc import (update_karma, get_karma, get_karmas,
                                    int_to_alpha, alpha_to_int)

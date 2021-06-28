@@ -34,6 +34,7 @@ spamwatch
 alphabet_detector
 pyrate-limiter
 gtts
+dnspython
 nekos.py
 pybase64
 youtube_dl

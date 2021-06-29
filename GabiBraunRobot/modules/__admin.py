@@ -104,7 +104,7 @@ async def promote(_, message):
         return
 
     if user_id == bot.id:
-        await message.reply_text(
+         message.reply_text(
             "I can't promote myself! Get an admin to do it for me.")
         return
 

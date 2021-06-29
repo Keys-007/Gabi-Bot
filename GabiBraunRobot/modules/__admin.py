@@ -55,8 +55,7 @@ async def current_chat_permissions(chat_id):
         perms.append("can_change_info")
     if perm.can_invite_users:
         perms.append("can_invite_users")
-    if perm.can_pin_messages:
-        perms.append("can_pin_messages")
+
 
     return perms
 

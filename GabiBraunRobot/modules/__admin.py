@@ -96,6 +96,7 @@ async def promote(_, message):
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
         await message.reply_text("Promoted successfully!")
+        return
 
         if user_member.status == 'administrator' or user_member.status == 'creator':
         await message.reply_text(

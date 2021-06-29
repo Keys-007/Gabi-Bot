@@ -99,7 +99,7 @@ async def promote(_, message):
         return
 
         if user_member.status == 'administrator' or user_member.status == 'creator':
-        await message.reply_text(
+         message.reply_text(
             "How am I meant to promote someone that's already an admin?")
         return
 

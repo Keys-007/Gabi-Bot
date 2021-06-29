@@ -65,15 +65,14 @@ async def current_chat_permissions(chat_id):
         perms.append("can_pin_messages")
 
     return perms
-
-@app.on_message(filters.command("fullpromote") & ~filters.edited)
-async def promote(_, message):
+app.on_message(filters.command("fullpromote") & ~filters.edited)
+async def fullpromote(_, message):
     try:
         from_user_id = message.from_user.id
         chat_id = message.chat.id
         permissions = await member_permissions(chat_id, from_user_id)
         if "can_promote_members" not in permissions and from_user_id not in SUDOERS:
-            await message.reply_text("You don't have the necessary rights to do that¡")
+            await message.reply_text("You don't have the necessary rights to do that")
             return
         bot = await app.get_chat_member(chat_id, BOT_ID)
         if len(message.command) == 2:
@@ -83,8 +82,8 @@ async def promote(_, message):
             user_id = message.reply_to_message.from_user.id
         else:
             await message.reply_text(
-                "You don't seem to be referring to a user or the ID specified is incorrect..")
-
+                "You don't seem to be referring to a user or the ID specified is incorrect."
+            )
             return
         await message.chat.promote_member(
             user_id=user_id,
@@ -97,7 +96,7 @@ async def promote(_, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await message.reply_text("Sucessfully promoted")
+        await message.reply_text("Sucessfully promoted!")
 
     except Exception as e:
         await message.reply_text(str(e))

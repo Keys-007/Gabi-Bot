@@ -26,7 +26,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from GabiBraunRobot import BOTLOG, BOTLOG_CHATID, bot, is_mongo_alive 
+from GabiBraunRobot import BOTLOG_CHATID, bot, is_mongo_alive 
 from GabiBraunRobot.events import register, grp_exclude
 
 

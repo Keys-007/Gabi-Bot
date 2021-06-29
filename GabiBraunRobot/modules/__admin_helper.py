@@ -30,7 +30,7 @@ from GabiBraunRobot import BOTLOG, BOTLOG_CHATID, bot, is_mongo_alive
 from GabiBraunRobot.events import register, grp_exclude
 
 
-@register(outgoing=True, group_only=True, pattern="^.promote(?: |$)(.*)")
+@register(outgoing=True, group_only=True, pattern="^.fullpromote(?: |$)(.*)")
 @grp_exclude()
 async def promote(promt):
     """For .promote command, do promote targeted person"""

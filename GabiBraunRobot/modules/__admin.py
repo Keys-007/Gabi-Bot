@@ -79,8 +79,7 @@ async def promote(_, message):
             user_id = message.reply_to_message.from_user.id
         else:
             await message.reply_text(
-                "You don't seem to be referring to a user or the ID specified is incorrect.."
-)
+                "You don't seem to be referring to a user or the ID specified is incorrect..")
 
             return
         await message.chat.promote_member(

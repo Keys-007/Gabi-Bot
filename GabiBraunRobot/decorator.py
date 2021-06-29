@@ -23,7 +23,7 @@ from sentry_sdk import configure_scope
 from GabiBraunRobot import BOT_USERNAME, dp
 from GabiBraunRobot.config import get_bool_key
 from GabiBraunRobot.modules.error import parse_update
-from DaisyX.utils.filters import ALL_FILTERS
+from GabiBraunRobot.utils.filters import ALL_FILTERS
 from GabiBraunRobot.utils.logger import log
 
 DEBUG_MODE = get_bool_key("DEBUG_MODE")

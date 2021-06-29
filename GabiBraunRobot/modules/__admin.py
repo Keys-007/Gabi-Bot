@@ -6,13 +6,6 @@ from pyrogram.types import ChatPermissions
 from GabiBraunRobot import BOT_ID,OWNER_ID, DRAGONS, DEV_USERS, pgram as app
 SUDOERS = [OWNER_ID] + DEV_USERS + DRAGONS
 
-async def list_admins(chat_id):
-    list_of_admins = []
-    async for member in app.iter_chat_members(
-            chat_id, filter="administrators"):
-        list_of_admins.append(member.user.id)
-    return list_of_admins
-
 
 async def member_permissions(chat_id, user_id):
     perms = []

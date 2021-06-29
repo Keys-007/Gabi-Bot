@@ -64,12 +64,12 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/AsunaRobot 
-RUN git clone -b shiken https://github.com/HuntingBots/AsunaRobot /root/AsunaRobot
-WORKDIR /root/AsunaRobot
+# Copy Python Requirements to /root/GabiBraunRobot 
+RUN git clone -b shiken https://github.com/HuntingBots/GabiBraunRobot /root/GabiBraunRobot
+WORKDIR /root/GabiBraunRobot
 
-#Copy config file to /root/AsunaRobot/AsunaRobot
-COPY ./AsunaRobot/sample_config.py ./AsunaRobot/config.py* /root/AsunaRobot/AsunaRobot/
+#Copy config file to /root/GabiBraunRobot/GabiBraunRobot
+COPY ./GabiBraunRobot/sample_config.py ./GabiBraunRobot/config.py* /root/GabiBraunRobot/GabiBraunRobot/
 
 ENV PATH="/home/bot/bin:$PATH"
 
@@ -77,4 +77,4 @@ ENV PATH="/home/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","AsunaRobot"]
+CMD ["python3","-m","GabiBraunRobot"]

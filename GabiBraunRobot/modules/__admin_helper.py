@@ -1,33 +1,10 @@
-from asyncio import sleep
 
-from telethon.errors import (
-    BadRequestError,
-    ChatAdminRequiredError,
-    ChatNotModifiedError,
-    ImageProcessFailedError,
-    PhotoCropSizeSmallError,
-    UserAdminInvalidError,
-)
-from telethon.errors.rpcerrorlist import UserIdInvalidError
-from telethon.tl.functions.channels import (
-    EditAdminRequest,
-    EditBannedRequest,
-    EditPhotoRequest,
-)
-from telethon.tl.functions.messages import (
-    EditChatDefaultBannedRightsRequest,
-    UpdatePinnedMessageRequest,
-)
-from telethon.tl.types import (
-    ChannelParticipantsAdmins,
-    ChatAdminRights,
-    ChatBannedRights,
-    MessageEntityMentionName,
-    MessageMediaPhoto,
-)
+import asyncio
 
-from GabiBraunRobot import BOTLOG_CHATID, bot, is_mongo_alive 
-from GabiBraunRobot.events import register, grp_exclude
+from telegram import ParseMode, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.utils.helpers import mention_html
 
 
 @register(outgoing=True, group_only=True, pattern="^.fullpromote(?: |$)(.*)")

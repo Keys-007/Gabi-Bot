@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import ChatPermissions
 
-from GabiBraunRobot import BOT_ID, bot
+from GabiBraunRobot import BOT_ID
 from GabiBraunRobot.decorator import register
 from GabiBraunRobot.services.telethon import tbot
 

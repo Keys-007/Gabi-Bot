@@ -69,7 +69,7 @@ async def promote(_, message):
         chat_id = message.chat.id
         permissions = await member_permissions(chat_id, from_user_id)
         if "can_promote_members" not in permissions and from_user_id not in SUDOERS:
-            await message.reply_text("You don't have enough permissions")
+            await message.reply_text("You don't have the necessary rights to do that¡")
             return
         bot = await app.get_chat_member(chat_id, BOT_ID)
         if len(message.command) == 2:
@@ -79,7 +79,7 @@ async def promote(_, message):
             user_id = message.reply_to_message.from_user.id
         else:
             await message.reply_text(
-                "You don't have the necessary rights to do that¡"
+                "You don't seem to be referring to a user or the ID specified is incorrect.."
 )
 
             return
@@ -94,7 +94,7 @@ async def promote(_, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await message.reply_text("Promoted successfully!")
+        await message.reply_text("Sucessfully promoted")
 
     except Exception as e:
         await message.reply_text(str(e))

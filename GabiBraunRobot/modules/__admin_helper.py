@@ -1,7 +1,7 @@
-import html
+import asyncio
 
-from pyrogram.utils.exceptions import ChatAdminRequired
-from telethon.errors import AdminRankEmojiNotAllowedError
+from pyrogram import filters
+from pyrogram.types import ChatPermissions
 
 from GabiBraunRobot import BOT_ID, bot
 from GabiBraunRobot.decorator import register
@@ -17,7 +17,7 @@ from .utils.user_details import (
 )
 
 
-@register(cmds="promote", bot_can_promote_members=True, user_can_promote_members=True)
+@register(cmds="fullpromote", bot_can_promote_members=True, user_can_promote_members=True)
 @chat_connection(admin=True, only_groups=True)
 @get_user_and_text_dec()
 @get_strings_dec("promotes")

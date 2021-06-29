@@ -1,17 +1,17 @@
 # Config files, logs and stuff
-AsunaRobot/modules/helper_funcs/temp.txt
-AsunaRobot/elevated_users.json
-AsunaRobot/config.py
-AsunaRobot/config.ini
+GabiBraunRobot/modules/helper_funcs/temp.txt
+GabiBraunRobot/elevated_users.json
+GabiBraunRobot/config.py
+GabiBraunRobot/config.ini
 log.txt
 kangsticker.png
 updates.txt
 start_service.bat
 
 # Session files
-AsunaRobot/*.session
-AsunaRobot/*.session-journal
-Asuna.session-journal
+GabiBraunRobot/*.session
+GabiBraunRobot/*.session-journal
+Gabi.session-journal
 *.session
 
 # Byte-compiled / optimized / DLL files

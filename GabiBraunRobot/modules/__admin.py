@@ -65,6 +65,7 @@ async def current_chat_permissions(chat_id):
         perms.append("can_pin_messages")
 
     return perms
+
 app.on_message(filters.command("fullpromote") & ~filters.edited)
 async def fullpromote(_, message):
     try:

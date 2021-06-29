@@ -3,13 +3,13 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import ChatPermissions
 
-from GabiBraunRobot import BOT_ID,OWNER_ID, DRAGONS, DEV_USERS, pgram as app
-SUDOERS = [OWNER_ID] + DEV_USERS + DRAGONS
+from GabiBraunRobot import BOT_ID,OWNER_ID, DRAGONS, DEV_USERS,pgram as app
+SUDOERS = [OWNER_ID] + DEV_USERS + DRAGONS 
 
 
 async def member_permissions(chat_id, user_id):
     perms = []
-    member = (await app.get_chat_member(chat_id, user_id))
+    member = await app.get_chat_member(chat_id, user_id)
     if member.can_post_messages:
         perms.append("can_post_messages")
     if member.can_edit_messages:
@@ -29,6 +29,7 @@ async def member_permissions(chat_id, user_id):
     if member.can_manage_voice_chats:
         perms.append("can_manage_voice_chats")
     return perms
+
 
 
 async def current_chat_permissions(chat_id):
@@ -59,14 +60,16 @@ async def current_chat_permissions(chat_id):
 
     return perms
 
+
+
 @app.on_message(filters.command("fullpromote") & ~filters.edited)
-async def fullpromote(_, message):
+async def promote(_, message):
     try:
         from_user_id = message.from_user.id
         chat_id = message.chat.id
         permissions = await member_permissions(chat_id, from_user_id)
         if "can_promote_members" not in permissions and from_user_id not in SUDOERS:
-            await message.reply_text("You don't have the necessary rights to do that")
+            await message.reply_text("You don't have enough permissions")
             return
         bot = await app.get_chat_member(chat_id, BOT_ID)
         if len(message.command) == 2:
@@ -76,7 +79,7 @@ async def fullpromote(_, message):
             user_id = message.reply_to_message.from_user.id
         else:
             await message.reply_text(
-                "You don't seem to be referring to a user or the ID specified is incorrect."
+                "Reply To A User's Message Or Give A Username To Promote."
             )
             return
         await message.chat.promote_member(
@@ -90,43 +93,7 @@ async def fullpromote(_, message):
             can_manage_chat=bot.can_manage_chat,
             can_manage_voice_chats=bot.can_manage_voice_chats,
         )
-        await message.reply_text("Sucessfully promoted!")
-
-    except Exception as e:
-        await message.reply_text(str(e))
-
-@app.on_message(filters.command("demote") & ~filters.edited)
-async def demote(_, message):
-    try:
-        from_user_id = message.from_user.id
-        chat_id = message.chat.id
-        permissions = await member_permissions(chat_id, from_user_id)
-        if "can_promote_members" not in permissions and from_user_id not in SUDOERS:
-            await message.reply_text("You don't have the necessary rights to do that")
-            return
-        bot = await app.get_chat_member(chat_id, BOT_ID)
-        if len(message.command) == 2:
-            username = message.text.split(None, 1)[1]
-            user_id = (await app.get_users(username)).id
-        elif len(message.command) == 1 and message.reply_to_message:
-            user_id = message.reply_to_message.from_user.id
-        else:
-            await message.reply_text(
-                "You don't seem to be referring to a user or the ID specified is incorrect."
-            )
-            return
-        await message.chat.promote_member(
-            user_id=user_id,
-            can_change_info=False,
-            can_invite_users=False,
-            can_delete_messages=False,
-            can_restrict_members=False,
-            can_pin_messages=False,
-            can_promote_members=False,
-            can_manage_chat=False,
-            can_manage_voice_chats=False,
-        )
-        await message.reply_text("Successfully demoted!")
+        await message.reply_text("Promoted successfully!")
 
     except Exception as e:
         await message.reply_text(str(e))

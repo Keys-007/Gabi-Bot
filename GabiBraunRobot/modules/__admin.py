@@ -4,7 +4,39 @@ from pyrogram import filters
 from pyrogram.types import ChatPermissions
 
 from GabiBraunRobot import BOT_ID,OWNER_ID, DRAGONS, DEV_USERS, pgram as app
-SUDOERS = [OWNER_ID] + DEV_USERS + DRAGONS 
+SUDOERS = [OWNER_ID] + DEV_USERS + DRAGONS
+
+async def list_admins(chat_id):
+    list_of_admins = []
+    async for member in app.iter_chat_members(
+            chat_id, filter="administrators"):
+        list_of_admins.append(member.user.id)
+    return list_of_admins
+
+
+async def member_permissions(chat_id, user_id):
+    perms = []
+    member = (await app.get_chat_member(chat_id, user_id))
+    if member.can_post_messages:
+        perms.append("can_post_messages")
+    if member.can_edit_messages:
+        perms.append("can_edit_messages")
+    if member.can_delete_messages:
+        perms.append("can_delete_messages")
+    if member.can_restrict_members:
+        perms.append("can_restrict_members")
+    if member.can_promote_members:
+        perms.append("can_promote_members")
+    if member.can_change_info:
+        perms.append("can_change_info")
+    if member.can_invite_users:
+        perms.append("can_invite_users")
+    if member.can_pin_messages:
+        perms.append("can_pin_messages")
+    if member.can_manage_voice_chats:
+        perms.append("can_manage_voice_chats")
+    return perms
+
 
 async def current_chat_permissions(chat_id):
     perms = []
@@ -33,9 +65,6 @@ async def current_chat_permissions(chat_id):
         perms.append("can_pin_messages")
 
     return perms
-
-
-
 
 @app.on_message(filters.command("fullpromote") & ~filters.edited)
 async def promote(_, message):

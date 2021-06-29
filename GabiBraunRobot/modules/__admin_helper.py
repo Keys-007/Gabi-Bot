@@ -1,11 +1,10 @@
-
 import html
 
 from pyrogram.utils.exceptions import ChatAdminRequired
 from telethon.errors import AdminRankEmojiNotAllowedError
 
 from GabiBraunRobot import BOT_ID, bot
-from GabiBraunRobot.telethon import register
+from GabiBraunRobot.decorator import register
 from GabiBraunRobot.services.telethon import tbot
 
 from .utils.connections import chat_connection
@@ -50,8 +49,8 @@ async def promote(message, chat, user, args, strings):
             invite_users=True,
             change_info=True,
             ban_users=True,
-            delete_messages=True,
             add_admins=True,
+            delete_messages=True,
             pin_messages=True,
             title=title,
         )

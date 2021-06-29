@@ -113,9 +113,6 @@ def promote(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-
-
-
 @run_async
 @connection_status
 @bot_admin
@@ -647,7 +644,6 @@ __help__ = """
  ❍ /unpin*:* unpins the currently pinned message
  ❍ /invitelink*:* gets invitelink
  ❍ /promote*:* promotes the user
- ❍ /fullpromote*:* promotes the user replied to message
  ❍ /demote*:* demotes the user
  ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
  ❍ /setgtitle <newtitle>*:* Sets new chat title in your group.
@@ -699,7 +695,7 @@ dispatcher.add_handler(ADMINLIST_HANDLER)
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
-dispatcher.add_handler(PROMOTE_HANDLER) 
+dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)

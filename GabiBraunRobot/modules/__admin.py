@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import ChatPermissions
 
-from GabiBraunRobot import BOT_ID,OWNER_ID, DRAGONS, DEV_USERS, pbot as app
+from GabiBraunRobot import BOT_ID,OWNER_ID, DRAGONS, DEV_USERS, pgram as app
 SUDOERS = [OWNER_ID] + DEV_USERS + DRAGONS 
 
 async def current_chat_permissions(chat_id):

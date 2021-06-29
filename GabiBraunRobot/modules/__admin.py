@@ -69,8 +69,10 @@ async def promote(_, message):
         chat_id = message.chat.id
         permissions = await member_permissions(chat_id, from_user_id)
         if "can_promote_members" not in permissions and from_user_id not in SUDOERS:
-            await message.reply_text(("You don't have the necessary rights to do that!")
+            await message.reply_text("You don't have the necessary rights to do that!")
             return
+
+
         bot = await app.get_chat_member(chat_id, BOT_ID)
         if len(message.command) == 2:
             username = message.text.split(None, 1)[1]

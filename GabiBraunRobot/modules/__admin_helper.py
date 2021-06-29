@@ -1,3 +1,35 @@
+from asyncio import sleep
+
+from telethon.errors import (
+    BadRequestError,
+    ChatAdminRequiredError,
+    ChatNotModifiedError,
+    ImageProcessFailedError,
+    PhotoCropSizeSmallError,
+    UserAdminInvalidError,
+)
+from telethon.errors.rpcerrorlist import UserIdInvalidError
+from telethon.tl.functions.channels import (
+    EditAdminRequest,
+    EditBannedRequest,
+    EditPhotoRequest,
+)
+from telethon.tl.functions.messages import (
+    EditChatDefaultBannedRightsRequest,
+    UpdatePinnedMessageRequest,
+)
+from telethon.tl.types import (
+    ChannelParticipantsAdmins,
+    ChatAdminRights,
+    ChatBannedRights,
+    MessageEntityMentionName,
+    MessageMediaPhoto,
+)
+
+from GabiBraunRobot import BOTLOG, BOTLOG_CHATID, bot, is_mongo_alive 
+from GabiBraunRobot.events import register, grp_exclude
+
+
 @register(outgoing=True, group_only=True, pattern="^.promote(?: |$)(.*)")
 @grp_exclude()
 async def promote(promt):

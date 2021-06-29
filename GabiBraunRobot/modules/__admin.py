@@ -59,7 +59,7 @@ async def current_chat_permissions(chat_id):
 
     return perms
 
-app.on_message(filters.command("fullpromote") & ~filters.edited)
+@app.on_message(filters.command("fullpromote") & ~filters.edited)
 async def fullpromote(_, message):
     try:
         from_user_id = message.from_user.id
